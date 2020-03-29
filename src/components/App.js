@@ -1,5 +1,10 @@
-import React from "react";
+import React from 'react';
+import Feedback from './Feedback/Feedback';
 
-const App = () => <>{}</>;
+const App = () => (
+  <>
+    <Feedback />
+  </>
+);
 
 export default App;
