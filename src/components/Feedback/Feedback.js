@@ -53,9 +53,7 @@ export default class MyClassComponent extends Component {
   };
 
   render() {
-    const { good } = this.state;
-    const { neutral } = this.state;
-    const { bad } = this.state;
+    const { good, neutral, bad } = this.state;
 
     return (
       <>
