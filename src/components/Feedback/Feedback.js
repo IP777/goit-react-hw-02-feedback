@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 //--------------------------------------------------------------
-import Statistics from './Statistics';
+import Statistics from './Statistics/Statistics';
 import Section from './Section';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 
@@ -23,21 +23,30 @@ export default class MyClassComponent extends Component {
     neutral: this.props.neutral,
     bad: this.props.bad,
   };
-
-  handelbarGoodInc = e => {
+  //------------------------------------
+  // handelbarGoodInc = e => {
+  //   this.setState(state => ({
+  //     good: state.good + 1,
+  //   }));
+  // };
+  // handelbarNeutralInc = e => {
+  //   this.setState(state => ({
+  //     neutral: state.neutral + 1,
+  //   }));
+  // };
+  // handelbarBadInc = e => {
+  //   this.setState(state => ({
+  //     bad: state.bad + 1,
+  //   }));
+  // };
+  //------------------------------------
+  handelbarInc = e => {
+    const {
+      target: { name },
+    } = e;
+    const nameLower = name.toLowerCase();
     this.setState(state => ({
-      good: state.good + 1,
-      total: state.good + state.neutral + state.bad,
-    }));
-  };
-  handelbarNeutralInc = e => {
-    this.setState(state => ({
-      neutral: state.neutral + 1,
-    }));
-  };
-  handelbarBadInc = e => {
-    this.setState(state => ({
-      bad: state.bad + 1,
+      [nameLower]: state[nameLower] + 1,
     }));
   };
 
@@ -59,17 +68,17 @@ export default class MyClassComponent extends Component {
       <>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={'Good'}
-            onLeaveFeedback={this.handelbarGoodInc}
+            options={['Good', 'Neutral', 'Bad']}
+            onLeaveFeedback={this.handelbarInc}
           />
-          <FeedbackOptions
+          {/* <FeedbackOptions
             options={'Neutral'}
             onLeaveFeedback={this.handelbarNeutralInc}
           />
           <FeedbackOptions
             options={'Bad'}
             onLeaveFeedback={this.handelbarBadInc}
-          />
+          /> */}
         </Section>
 
         <Section title="Statistics">
