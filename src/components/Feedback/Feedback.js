@@ -23,23 +23,7 @@ export default class MyClassComponent extends Component {
     neutral: this.props.neutral,
     bad: this.props.bad,
   };
-  //------------------------------------
-  // handelbarGoodInc = e => {
-  //   this.setState(state => ({
-  //     good: state.good + 1,
-  //   }));
-  // };
-  // handelbarNeutralInc = e => {
-  //   this.setState(state => ({
-  //     neutral: state.neutral + 1,
-  //   }));
-  // };
-  // handelbarBadInc = e => {
-  //   this.setState(state => ({
-  //     bad: state.bad + 1,
-  //   }));
-  // };
-  //------------------------------------
+
   handelbarInc = e => {
     const {
       target: { name },
@@ -71,14 +55,6 @@ export default class MyClassComponent extends Component {
             options={['Good', 'Neutral', 'Bad']}
             onLeaveFeedback={this.handelbarInc}
           />
-          {/* <FeedbackOptions
-            options={'Neutral'}
-            onLeaveFeedback={this.handelbarNeutralInc}
-          />
-          <FeedbackOptions
-            options={'Bad'}
-            onLeaveFeedback={this.handelbarBadInc}
-          /> */}
         </Section>
 
         <Section title="Statistics">
